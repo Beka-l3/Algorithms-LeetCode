@@ -34,7 +34,7 @@ let tests: [(nums: [Int], answer: Int)] = [
     
     ([6], 0),
     ([4, 2], 1),
-    
+]
 
 for (i, test) in tests.enumerated() {
     let res = jump(test.nums)
