@@ -1,5 +1,6 @@
 import Foundation
 
+/// Time O(n)           Space O(1)
 func jump(_ nums: [Int]) -> Int {
     var maxReachable = 0, last = 0, i = 0, jumps = 0
     
@@ -16,6 +17,19 @@ func jump(_ nums: [Int]) -> Int {
     return jumps
 }
 
-
+/// Example:    correct answer = 2
 let ex1 = jump([2,3,1,1,4])
-print(ex1) // must be 2
+print(ex1, "\n")
+
+
+// MARK: - Tests
+
+let tests: [(nums: [Int], answer: Int)] = [
+    ([2,3,1,1,4], 2),
+    ([2,3,0,1,4], 2),
+]
+
+for (i, test) in tests.enumerated() {
+    let res = jump(test.nums)
+    print("Test_\(i):   expected = \(test.answer)   |   returned = \(res)   |   \(test.answer == res)\n")
+}
