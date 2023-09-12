@@ -34,6 +34,8 @@ let tests: [(nums: [Int], answer: Int)] = [
     
     ([6], 0),
     ([4, 2], 1),
+    ([4, 1, 2, 6, 2, 4, 6, 3, 1, 3, 2, 1, 6, 3, 5], 4),
+    
 ]
 
 for (i, test) in tests.enumerated() {
