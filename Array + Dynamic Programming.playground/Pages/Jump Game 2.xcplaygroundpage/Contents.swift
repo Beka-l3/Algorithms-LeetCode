@@ -27,9 +27,14 @@ print(ex1, "\n")
 let tests: [(nums: [Int], answer: Int)] = [
     ([2,3,1,1,4], 2),
     ([2,3,0,1,4], 2),
+    
+    ([4, 2, 0, 4, 0, 5, 2], 2),
+    ([2, 1, 6, 4, 0], 2),
+    ([2, 1, 4, 0, 1, 4, 5, 4, 0, 4], 3),
 ]
 
 for (i, test) in tests.enumerated() {
     let res = jump(test.nums)
     print("Test_\(i):   expected = \(test.answer)   |   returned = \(res)   |   \(test.answer == res)\n")
 }
+
