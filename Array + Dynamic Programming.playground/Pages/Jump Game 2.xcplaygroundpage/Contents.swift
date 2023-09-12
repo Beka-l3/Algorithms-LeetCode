@@ -15,3 +15,7 @@ func jump(_ nums: [Int]) -> Int {
     
     return jumps
 }
+
+
+let ex1 = jump([2,3,1,1,4])
+print(ex1) // must be 2
