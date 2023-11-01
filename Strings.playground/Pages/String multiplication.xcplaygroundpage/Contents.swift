@@ -50,3 +50,59 @@ print(multiply3("2","34"))
 
 
 
+
+
+// MARK: - other methods
+
+/// time O(n2)              space O(n2)
+func sum(_ a: String, _ b: String) -> String {
+    if a.count >= b.count {
+        var i = a.count - 1, j = b.count - 1
+        var s = "", carry = false
+        
+        while j >= 0 || i >= 0  {
+            let idx = a.index(a.startIndex, offsetBy: i)
+            let jdx = j >= 0 ? b.index(b.startIndex, offsetBy: j) : b.startIndex
+            var ss = Int("\(a[idx])")! + (j >= 0 ? Int("\(b[jdx])")! : 0) + (carry ? 1 : 0)
+            
+            carry = ss >= 10
+            ss -= carry ? 10 : 0
+            s = "\(ss)" + s
+            
+            i -= 1
+            j -= 1
+        }
+        
+        return carry ? "1" + s : s
+    }
+    
+    return sum(b, a)
+}
+
+func multByDigit(_ a: String, _ d: String) -> String {
+    let digit = Int(d)!
+    var s = "0"
+    for _ in 0..<digit {
+        s = sum(s, a)
+    }
+    
+    return s
+}
+
+func multiply(_ a: String, _ b: String) -> String {
+    var mults: [String] = []
+    
+    for i in 0..<b.count {
+        let idx = b.index(b.startIndex, offsetBy: i)
+        mults.append(multByDigit(a, "\(b[idx])"))
+    }
+    
+    var s: String = "0"
+    for i in 0..<mults.count {
+        let zeros = String([Character](repeating: Character("0"), count: mults.count - i - 1))
+        let qq = mults[i] + zeros
+        s = sum(qq, s)
+    }
+    
+    return "\(s[s.startIndex])" == "0" ? "0" : s
+}
