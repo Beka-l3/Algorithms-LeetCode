@@ -48,3 +48,37 @@ func sum(_ a: String, _ b: String) -> String {
     
     return carry ? "1" + res : res
 }
+
+
+
+
+// MARK: - Generated TESTS
+func runGT(_ gta: Int = 20) {
+    
+    for i in 0..<gta {
+        let gac = Int.random(in: 0...10)
+        let gbc = Int.random(in: 0...10)
+        
+        var a = ""
+        var b = ""
+        
+        for _ in 0..<gac {
+            a += a.isEmpty ? "\(dc[Int.random(in: 1..<16)]!)" : "\(dc[Int.random(in: 0..<16)]!)"
+        }
+        
+        for _ in 0..<gbc {
+            b += b.isEmpty ? "\(dc[Int.random(in: 1..<16)]!)" : "\(dc[Int.random(in: 0..<16)]!)"
+        }
+        
+        let res = sum(a, b)
+        let expected = sumT(a, b)
+        print("Generated_Test___\(i)    |   \(res == expected)")
+        print("a: \(a)")
+        print("b: \(b)")
+        print("e: \(expected)")
+        print("r: \(res)\n")
+        
+    }
+}
+
+runGT()
