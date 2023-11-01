@@ -3,5 +3,6 @@
     <pages>
         <page name='String multiplication'/>
         <page name='String multiplication by digit'/>
+        <page name='Hex sum'/>
     </pages>
 </playground>
