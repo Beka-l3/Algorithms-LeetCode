@@ -82,3 +82,153 @@ func runGT(_ gta: Int = 20) {
 }
 
 runGT()
+
+
+
+func sumT(_ a: String, _ b: String) -> String {
+    // Step 1: Convert hex strings to decimal integers
+    let a = a.isEmpty ? "0" : a
+    let b = b.isEmpty ? "0" : b
+    
+    guard
+        let aDecimal = Int(a, radix: 16),
+        let bDecimal = Int(b, radix: 16)
+    else {
+        return ""
+    }
+    
+    // Step 2: Add the decimal integers together
+    let sumDecimal = aDecimal + bDecimal
+    
+    // Step 3: Convert the result back to a hex string
+    let hexString = String(sumDecimal, radix: 16)
+    
+    // Step 4: Return the hex string
+    return hexString
+}
+
+/*
+ 
+ Generated_Test___0    |   true
+ a: 8920c
+ b: 7df17989b
+ e: 7df202aa7
+ r: 7df202aa7
+
+ Generated_Test___1    |   true
+ a: 4cad055
+ b: 976f1
+ e: 4d44746
+ r: 4d44746
+
+ Generated_Test___2    |   true
+ a: e0b
+ b: 368fe
+ e: 37709
+ r: 37709
+
+ Generated_Test___3    |   true
+ a: b3
+ b: 5bd3
+ e: 5c86
+ r: 5c86
+
+ Generated_Test___4    |   true
+ a: 7c2e7fe7ec
+ b:
+ e: 7c2e7fe7ec
+ r: 7c2e7fe7ec
+
+ Generated_Test___5    |   true
+ a: 333b
+ b: ab90
+ e: decb
+ r: decb
+
+ Generated_Test___6    |   true
+ a: 796eb1426
+ b: c2c1934aa
+ e: 13c30448d0
+ r: 13c30448d0
+
+ Generated_Test___7    |   true
+ a: 11
+ b: ba9619ff
+ e: ba961a10
+ r: ba961a10
+
+ Generated_Test___8    |   true
+ a: 7e58eb580d
+ b: b372cb5
+ e: 7e642284c2
+ r: 7e642284c2
+
+ Generated_Test___9    |   true
+ a: a6ead95
+ b:
+ e: a6ead95
+ r: a6ead95
+
+ Generated_Test___10    |   true
+ a: 234cc33de
+ b: b3f
+ e: 234cc3f1d
+ r: 234cc3f1d
+
+ Generated_Test___11    |   true
+ a: 8f9
+ b:
+ e: 8f9
+ r: 8f9
+
+ Generated_Test___12    |   true
+ a: ac6fc4126
+ b: 2
+ e: ac6fc4128
+ r: ac6fc4128
+
+ Generated_Test___13    |   true
+ a: 867a90
+ b: 884dd
+ e: 8eff6d
+ r: 8eff6d
+
+ Generated_Test___14    |   true
+ a: 808cc
+ b:
+ e: 808cc
+ r: 808cc
+
+ Generated_Test___15    |   true
+ a: 92631
+ b: e04b
+ e: a067c
+ r: a067c
+
+ Generated_Test___16    |   true
+ a: 2008
+ b: 2157
+ e: 415f
+ r: 415f
+
+ Generated_Test___17    |   true
+ a: 390d
+ b: 92cc3
+ e: 965d0
+ r: 965d0
+
+ Generated_Test___18    |   true
+ a: 8962d58
+ b: b6c318
+ e: 94cf070
+ r: 94cf070
+
+ Generated_Test___19    |   true
+ a: e4dc3206
+ b: ac9865541
+ e: bae628747
+ r: bae628747
+
+
+ 
+ */
