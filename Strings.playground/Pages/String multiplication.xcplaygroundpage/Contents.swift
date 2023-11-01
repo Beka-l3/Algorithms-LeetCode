@@ -106,3 +106,40 @@ func multiply(_ a: String, _ b: String) -> String {
     
     return "\(s[s.startIndex])" == "0" ? "0" : s
 }
+
+
+func multiply2(_ a: String, _ b: String) -> String {
+    var arr = [Int](repeating: 0, count: a.count + b.count)
+    var r = ""
+    
+    for i in (0..<a.count).reversed() {
+        let idx = a.index(a.startIndex, offsetBy: a.count - i - 1)
+        for j in (0..<b.count).reversed() {
+            let jdx = b.index(b.startIndex, offsetBy: b.count - j - 1)
+            arr[i + j] += Int("\(a[idx])")! * Int("\(b[jdx])")!
+        }
+    }
+    print(arr)
+    
+    for i in 0..<arr.count {
+        let n = arr[i]
+        arr[i] = n % 10
+
+        if i < arr.count - 1 {
+            arr[i+1] += (n / 10)
+        }
+
+        r = "\(arr[i])" + r
+    }
+    print(r)
+    
+    var j = 0
+    while j < r.count - 1, r[r.index(r.startIndex, offsetBy: j)] == "0" {
+        j += 1
+    }
+    print()
+
+    return "\(r[r.index(r.startIndex, offsetBy: j)..<r.endIndex])"
+}
+
+
